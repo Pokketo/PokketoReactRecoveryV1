@@ -10,6 +10,7 @@ import toast from "react-hot-toast";
 import { onSingleErrorResponse } from "../../api-manage/api-error-response/ErrorResponses";
 import LoadingButton from "@mui/lab/LoadingButton";
 import mapMarker from "./assets/mapMarker.png";
+import Image from "next/image";
 
 const DeleteAddress = ({ open, handleClose, addressId, refetch }) => {
   const { t } = useTranslation();
@@ -33,11 +34,11 @@ const DeleteAddress = ({ open, handleClose, addressId, refetch }) => {
             justifyContent="center"
             spacing={3}
           >
-            <img
+            <Image
               src={mapMarker.src}
               alt={t("map-image")}
-              width="60px"
-              height="60px"
+              width={60}
+              height={60}
             />
             <Typography fontWeight="bold" variant="h6">
               {t("Are you sure you want to delete this address?")}

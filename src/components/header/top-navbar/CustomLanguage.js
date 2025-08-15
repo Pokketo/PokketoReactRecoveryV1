@@ -12,6 +12,7 @@ import i18n, { t } from "i18next";
 import { useTheme } from "@mui/material/styles";
 import { StyledMenu, TopBarButton } from "../NavBar.style";
 import { useSettings } from "../../../contexts/use-settings";
+import Image from "next/image";
 
 const getValues = (settings) => ({
   direction: settings.direction,
@@ -101,9 +102,11 @@ const CustomLanguage = ({ formmobilemenu }) => {
         onClick={handleClick}
         startIcon={
           <Stack color={theme.palette.neutral[1000]}>
-            <img
-              width="20px"
+            <Image
+              width={20}
+              height={20}
               src={language === "en" ? eng.src : arabicImg.src}
+              alt="language flag"
             />
           </Stack>
         }
@@ -139,9 +142,11 @@ const CustomLanguage = ({ formmobilemenu }) => {
             }}
           >
             <ListItemIcon>
-              <img
-                width="20px"
+              <Image
+                width={20}
+                height={20}
                 src={lan.key === "en" ? eng.src : arabicImg.src}
+                alt="language flag"
               />
             </ListItemIcon>
             {lan.value}

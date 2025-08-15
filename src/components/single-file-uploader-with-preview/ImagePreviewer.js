@@ -9,6 +9,7 @@ import ImageUploaderThumbnail from "./ImageUploaderThumbnail";
 import DeleteIcon from "@mui/icons-material/Delete";
 import emptyImage from "../profile/asset/gallery-add.png";
 import CustomImageContainer from "components/CustomImageContainer";
+import Image from "next/image";
 
 const ImagePreviewer = ({
   anchor,
@@ -44,7 +45,7 @@ const ImagePreviewer = ({
             height={height}
           >
             {typeof file !== "string" ? (
-              <img src={previewImage.url} alt="preview" />
+              <Image src={previewImage.url} alt="preview" fill />
             ) : (
               <CustomImageContainer
                 src={previewImage}

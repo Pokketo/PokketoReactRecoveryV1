@@ -18,6 +18,7 @@ import pickMarker from "./assets/pick_marker.png";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { darkStyles, grayMapStyle } from "../mapColor.js";
+import Image from "next/image";
 
 const GoogleMapComponent = ({
   setDisablePickButton,
@@ -229,7 +230,7 @@ const GoogleMapComponent = ({
         options={options}
       >
         {!locationLoading ? (
-          <img
+          <Image
             src={pickMarker.src}
             style={{
               zIndex: 3,
@@ -238,9 +239,9 @@ const GoogleMapComponent = ({
               marginLeft: -32,
               left: "50%",
               top: "50%",
-              height: "60px",
-              width: "45px",
             }}
+            width={45}
+            height={60}
             alt="map"
           />
         ) : (

@@ -55,7 +55,7 @@ const FoodModule = (props) => {
     };
 
     fetchData();
-  }, [token]);
+  }, [token, refetch, refetchVisitAgain, newStoreRefetch]);
   useEffect(() => {
     if (visitedStores?.length > 0 || newStore?.stores?.length > 0) {
       if (visitedStores?.length > 0 && visitedStores) {

@@ -35,6 +35,7 @@ import TopBanner from "./top-banner";
 import TaxiSearchPanel from "components/home/module-wise-components/rental/components/global/search/TaxiSearchPanel";
 import { useGetWishList } from "api-manage/hooks/react-query/rental-wishlist/useGetWishlist";
 import Rental from "components/home/module-wise-components/rental/Rental";
+import Image from "next/image";
 
 export const HomeComponentsWrapper = styled(Box)(({ theme }) => ({
 	width: "100%",
@@ -219,7 +220,7 @@ const HomePageComponents = ({ configData, landingPageData }) => {
 						},
 					}}
 				>
-					<img
+					<Image
 						src={"/static/sign-up-welcome.svg"}
 						alt="welcome"
 						width={183}

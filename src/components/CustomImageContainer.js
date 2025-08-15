@@ -2,6 +2,7 @@ import React, { memo, useEffect, useState } from "react";
 import { CustomImageContainerStyled } from "styled-components/CustomStyles.style";
 import placeholder from "../../public/static/no-image-found.png";
 import { Box } from "@mui/system";
+import Image from "next/image";
 
 const CustomImageContainer = ({
   cursor,
@@ -57,9 +58,10 @@ const CustomImageContainer = ({
           }}
         />
       ) : (
-        <img
+        <Image
           src={imageFile}
           alt={alt || "image"}
+          fill
           onError={() => {
             setState(placeholder?.src);
           }}

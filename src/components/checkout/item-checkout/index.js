@@ -197,7 +197,7 @@ const ItemCheckout = (props) => {
 
   useEffect(() => {
     refetchOfflinePaymentOptions();
-  }, []);
+  }, [refetchOfflinePaymentOptions]);
   useEffect(() => {
     if (storeId) {
       refetch();
@@ -215,7 +215,7 @@ const ItemCheckout = (props) => {
       address_type: "Selected Address",
     });
     refetch();
-  }, []);
+  }, [setAddress, refetch]);
   const currentLatLng = JSON.parse(
     window.localStorage.getItem("currentLatLng")
   );
@@ -285,7 +285,7 @@ const ItemCheckout = (props) => {
       address_type: "Selected Address",
     });
     refetch();
-  }, []);
+  }, [setAddress, refetch]);
   useEffect(() => {
     storeData && address && refetchDistance();
   }, [storeData, address]);
@@ -326,7 +326,7 @@ const ItemCheckout = (props) => {
     if (offlineCheck) {
       handleOffineOrder();
     }
-  }, [orderId]);
+  }, [orderId, handleOffineOrder]);
 
   const handleProductList = (productList, totalQty) => {
     return productList?.map((cart) => {
@@ -735,7 +735,7 @@ const ItemCheckout = (props) => {
     if (orderSuccess) {
       handleOrderSuccess();
     }
-  }, [orderSuccess]);
+  }, [orderSuccess, handleOrderSuccess]);
   const handleOrderSuccess = () => {
     if (page === "buysetScheduleAt_now") {
       dispatch(setRemoveItemFromCart(cartList?.[0]));
@@ -840,7 +840,7 @@ const ItemCheckout = (props) => {
     if (payableAmount > 0) {
       refetchCashbackAmount();
     }
-  }, [payableAmount]);
+  }, [payableAmount, handlePartialPaymentCheck, refetchCashbackAmount]);
 
   const agreeToPartial = () => {
     setPaymentMethod("");
@@ -933,7 +933,7 @@ const ItemCheckout = (props) => {
     } else {
       setPackagingCharge(0);
     }
-  }, [isPackaging]);
+  }, [isPackaging, storeData]);
   const isZoneDigital = getDigitalMethodFromZone(
     storeData?.zone_id,
     zoneData?.data
@@ -958,7 +958,7 @@ const ItemCheckout = (props) => {
 
   useEffect(() => {
     hasOnlyPaymentMethod();
-  }, [configData, isZoneDigital]);
+  }, [configData, isZoneDigital, hasOnlyPaymentMethod]);
 
   return (
     <>
