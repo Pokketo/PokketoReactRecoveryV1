@@ -65,7 +65,7 @@ const CustomImageContainer = ({
           onError={() => {
             setState(placeholder?.src);
           }}
-          loading={loading || "lazy"}
+          loading={loading === "eager" ? "eager" : "lazy"}
         />
       )}
     </CustomImageContainerStyled>

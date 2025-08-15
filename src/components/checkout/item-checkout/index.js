@@ -731,11 +731,6 @@ const ItemCheckout = (props) => {
   };
 
   const couponRemove = () => {};
-  useEffect(() => {
-    if (orderSuccess) {
-      handleOrderSuccess();
-    }
-  }, [orderSuccess, handleOrderSuccess]);
   const handleOrderSuccess = () => {
     if (page === "buysetScheduleAt_now") {
       dispatch(setRemoveItemFromCart(cartList?.[0]));
@@ -758,6 +753,11 @@ const ItemCheckout = (props) => {
       );
     }
   };
+  useEffect(() => {
+    if (orderSuccess) {
+      handleOrderSuccess();
+    }
+  }, [orderSuccess, handleOrderSuccess]);
   const handleImageUpload = (value) => {
     setIsImageSelected([value]);
   };
