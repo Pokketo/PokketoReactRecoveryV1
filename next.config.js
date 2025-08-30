@@ -7,6 +7,8 @@ const nextConfig = {
       "6ammart-test.6amdev.xyz",
       "192.168.50.168",
       "6ammart-dev.6amdev.xyz",
+      "uatadmin.pokketo.com",
+      'uat.pokketo.com'
     ], // Add the domain here
   },
 };
