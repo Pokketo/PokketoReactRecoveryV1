@@ -58,6 +58,8 @@ import { CouponTitle } from "../CheckOut.style";
 import DeliveryManTip from "../DeliveryManTip";
 import SinglePrescriptionUpload from "../Prescription/SinglePrescriptionUpload";
 import AddPaymentMethod from "./AddPaymentMethod";
+import AddressConfirmationPopup from "./AddressConfirmationPopup";
+
 import CheckoutStepper from "./CheckoutStepper";
 import Cutlery from "./Cutlery";
 import DeliveryDetails from "./DeliveryDetails";
@@ -130,7 +132,7 @@ const ItemCheckout = (props) => {
   const token = getToken();
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const guest_id = getGuestId();
+  const [openAddressModal, setOpenAddressModal] = useState(false);
   const { method } = router.query;
   const formik = useFormik({
     initialValues: {
@@ -713,21 +715,29 @@ const ItemCheckout = (props) => {
       return isOpen; // Add this line to return true or false based on whether the store is open.
     }
   };
-  const placeOrder = () => {
+  const handlePlaceOrderClick = () => {
     if (orderType !== 'take_away' && !validateAddressBeforeCheckout()) {
       return;
     }
 
     if (storeData?.active) {
-      //checking restaurant or shop open or not
       if (isSchedules()) {
-        handlePlaceOrderBasedOnAvailability();
+        setOpenAddressModal(true);
       } else {
         storeCloseToast();
       }
     } else {
       storeCloseToast();
     }
+  };
+
+  const handleConfirmOrder = () => {
+     setOpenAddressModal(false);
+     handlePlaceOrderBasedOnAvailability();
+  };
+
+  const placeOrder = () => {
+     handlePlaceOrderClick();
   };
 
   const couponRemove = () => {};
@@ -1191,6 +1201,14 @@ const ItemCheckout = (props) => {
               </CustomPaperBigCard>
             </CustomStackFullWidth>
           </Grid>
+          {openAddressModal && (
+            <AddressConfirmationPopup
+              open={openAddressModal}
+              handleClose={() => setOpenAddressModal(false)}
+              onConfirm={handleConfirmOrder}
+              address={address}
+            />
+          )}
           {openModal && (
             <CustomModal
               openModal={openModal}

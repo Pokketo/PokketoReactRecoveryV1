@@ -54,6 +54,23 @@ const AddressSelectionSection = ({
           justifyContent: "space-between",
           alignItems: "center",
           mb: 2,
+          // Responsive styles for the Add Address button
+          "& .MuiButton-root": {
+            height: { xs: "auto", md: "40px" }, // Allow height to adjust
+            minHeight: { xs: "32px", md: "40px" },
+            padding: { xs: "4px 8px", md: "6px 16px" }, // Optimized padding
+            minWidth: "fit-content", // Allow button to expand to fit text
+            "& .MuiTypography-root": {
+              width: "auto !important", // Override fixed width from child component
+              fontSize: { xs: "11px", md: "0.875rem" }, 
+              whiteSpace: "nowrap",
+              lineHeight: 1.2,
+            }
+          },
+          "& .MuiSvgIcon-root": {
+             width: { xs: "16px", md: "20px" }, 
+             height: { xs: "16px", md: "20px" },
+          }
         }}
       >
         <Typography variant="h6" fontWeight="600">
@@ -70,7 +87,15 @@ const AddressSelectionSection = ({
           value={selectedAddress?.id ? selectedAddress.id.toString() : ""}
           onChange={handleAddressChange}
         >
-          <Grid container spacing={2}>
+          {/* Scrollable container: scrolling enabled only if addresses > 4 */}
+          <Box
+            sx={{
+              maxHeight: addresses.length > 4 ? "320px" : "none",
+              overflowY: addresses.length > 4 ? "auto" : "visible",
+              paddingRight: addresses.length > 4 ? "5px" : "0px", // Avoid scrollbar overlap
+            }}
+          >
+            <Grid container spacing={2}>
             {addresses.map((address) => (
               <Grid item xs={12} md={6} key={address.id}>
                 <Paper
@@ -184,7 +209,8 @@ const AddressSelectionSection = ({
                 </Paper>
               </Grid>
             ))}
-          </Grid>
+            </Grid>
+          </Box>
         </RadioGroup>
       ) : (
         <Paper

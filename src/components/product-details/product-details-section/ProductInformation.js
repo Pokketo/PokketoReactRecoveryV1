@@ -372,14 +372,14 @@ const ProductInformation = ({
 				) : (
 					<Skeleton width={100} variant="text" />
 				)}
-				{state.modalData[0]?.generic_name[0] && (
+				{state.modalData[0]?.generic_name?.[0] && (
 					<Typography
 						fontSize={{ xs: "12px", sm: "12px" }}
 						fontWeight="400"
 						color="customColor.textGray"
 						component="h2"
 					>
-						{state.modalData[0]?.generic_name[0]}
+						{state.modalData[0]?.generic_name?.[0]}
 					</Typography>
 				)}
 

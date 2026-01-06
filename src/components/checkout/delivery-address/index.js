@@ -177,6 +177,8 @@ const DeliveryAddress = ({
   
   return (
     <>
+    {/*Comment this button Beacuse alreadt we have Add Address Button*/}
+    {/*
       <Stack
         direction="row"
         justifyContent="space-between"
@@ -204,6 +206,7 @@ const DeliveryAddress = ({
           />
         )}
       </Stack>
+      */}
       
       {renderOnNavbar === "true" ? (
         <>
@@ -258,14 +261,29 @@ const DeliveryAddress = ({
       </>
     )}
     
-    {renderOnNavbar !== "true" && token && orderType !== "take_away" && data?.addresses?.length > 0 && (
-      <AdditionalAddresses
+    
+    {/* 
+{renderOnNavbar !== "true" && token && orderType !== "take_away" && data?.addresses?.length > 0 && (
+  <AdditionalAddresses
+    t={t}
+    additionalInformationDispatch={dispatch}
+    additionalInformationStates={state}
+    saveAddress={saveAddress}
+    address={address}
+    setAddress={setAddress}
+  />
+)}
+*/}
+
+
+    {openAddressModal && (
+      <AddNewAddress
+        refetch={refetch}
         t={t}
-        additionalInformationDispatch={dispatch}
-        additionalInformationStates={state}
-        saveAddress={saveAddress}
-        address={address}
-        setAddress={setAddress}
+        configData={configData}
+        openAddressModal={openAddressModal}
+        editAddress={editAddress}
+        setEditAddress={setEditAddress}
       />
     )}
 
