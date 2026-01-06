@@ -272,7 +272,7 @@ export const english = {
 	"Last Name": "Last Name",
 	Address: "Address",
 	"Payment Details": "Payment Details",
-	"Place Order": "Review Delivery Addres",
+	"Place Order": "Review Delivery Address",
 	"Company / Individual name is required":
 		"Company / Individual name is required",
 	"Phone number is not valid": "Phone number is not valid",
