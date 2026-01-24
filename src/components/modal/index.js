@@ -10,7 +10,7 @@ const CustomModal = (props) => {
     closeButton,
     children,
     maxWidth,
-    
+    ...rest
   } = props;
   const handleCloseModal = (event, reason) => {
     if (reason && reason === "backdropClick") {
@@ -34,6 +34,7 @@ const CustomModal = (props) => {
           maxWidth: maxWidth,
         },
       }}
+      {...rest}
     >
       {closeButton && (
         <Stack direction="row" justifyContent="flex-end">

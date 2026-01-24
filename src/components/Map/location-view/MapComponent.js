@@ -107,15 +107,23 @@ const MapComponent = (props) => {
     }
   }, [state.map]);
 
-  const directionRoute = async () => {
-    if (google && google.maps) {
+  const directionRoute = () => {
+    if (typeof google !== "undefined" && google.maps && google.maps.DirectionsService) {
       const directionsService = new google.maps.DirectionsService();
-      const results = await directionsService.route({
-        origin: center,
-        destination: center1,
-        travelMode: google.maps.TravelMode.DRIVING,
-      });
-      setDirectionsResponse(results);
+      directionsService.route(
+        {
+          origin: center,
+          destination: center1,
+          travelMode: google.maps.TravelMode.DRIVING,
+        },
+        (result, status) => {
+          if (status === google.maps.DirectionsStatus.OK) {
+            setDirectionsResponse(result);
+          } else {
+            console.error(`Directions request failed due to ${status}`);
+          }
+        }
+      );
     }
   };
   useEffect(() => {

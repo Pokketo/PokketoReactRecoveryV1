@@ -440,31 +440,18 @@ const TopDetails = (props) => {
       <CustomModal
         openModal={orderDetailsModal}
         handleClose={() => handleOfflineClose()}
+        maxWidth="420px"
+        PaperProps={{
+          sx: {
+            borderRadius: "16px",
+            width: "100%",
+            maxWidth: "420px",
+            overflow: "visible",
+            boxShadow: theme.shadows[10],
+            m: 1,
+          },
+        }}
       >
-        <CustomStackFullWidth
-          direction="row"
-          alignItems="center"
-          justifyContent="flex-end"
-          sx={{ position: "relative" }}
-        >
-          <IconButton
-            onClick={() => handleOfflineClose()}
-            sx={{
-              zIndex: "99",
-              position: "absolute",
-              top: 10,
-              right: 10,
-              backgroundColor: (theme) => theme.palette.neutral[100],
-              borderRadius: "50%",
-              [theme.breakpoints.down("md")]: {
-                top: 10,
-                right: 5,
-              },
-            }}
-          >
-            <CloseIcon sx={{ fontSize: "24px", fontWeight: "500" }} />
-          </IconButton>
-        </CustomStackFullWidth>
         <OfflineOrderDetailsModal
           trackData={trackData}
           trackDataIsLoading={trackDataIsLoading}
