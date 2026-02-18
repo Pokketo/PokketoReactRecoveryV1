@@ -55,11 +55,13 @@ const HeroSection = ({ configData, landingPageData, handleOrderNow }) => {
   return (
     <CustomContainer>
       <CustomBoxFullWidth
+        className="premium-fade-in"
         sx={{
           marginTop: calculateTopMargin(),
-          borderRadius: "20px",
+          borderRadius: { xs: "16px", md: "24px" },
           position: "relative",
           overflow: "hidden",
+          boxShadow: "0px 8px 40px rgba(3, 157, 85, 0.08), 0px 2px 12px rgba(0, 0, 0, 0.04)",
           ".shape img": {
             transition: "all ease-in 1s",
           },
@@ -76,7 +78,9 @@ const HeroSection = ({ configData, landingPageData, handleOrderNow }) => {
             item
             xs={8}
             md={7}
-            sx={{ padding: { xs: "1rem", sm: "2rem", md: "3rem" } }}
+            sx={{
+              padding: { xs: "1.25rem", sm: "2.5rem", md: "3.5rem" },
+            }}
           >
             <NoSsr>
               <HeroTitleSection
@@ -94,10 +98,11 @@ const HeroSection = ({ configData, landingPageData, handleOrderNow }) => {
               paddingTop={{ xs: "2rem", md: "3rem" }}
             >
               <Box
+                className="subtle-float"
                 sx={{
                   height: { xs: "125px", sm: "350px", md: "420px" },
                   width: { xs: "78px", sm: "210px", md: "240px" },
-                  borderRadius: isXSmall ? "5px 5px 0 0" : "16px 16px 0 0",
+                  borderRadius: isXSmall ? "8px 8px 0 0" : "20px 20px 0 0",
                   position: "relative",
                   zIndex: "99",
                   backgroundImage: `url(${landingPageData?.header_banner_full_url})`,
@@ -105,6 +110,7 @@ const HeroSection = ({ configData, landingPageData, handleOrderNow }) => {
                   backgroundRepeat: "no-repeat",
                   marginInline: "auto",
                   padding: "0",
+                  boxShadow: "0px 16px 48px rgba(0, 0, 0, 0.12)",
                 }}
               >
                 {landingPageData?.header_banner_full_url && (
@@ -124,6 +130,7 @@ const HeroSection = ({ configData, landingPageData, handleOrderNow }) => {
                   bottom: isXSmall ? 5 : 16,
                   right: { xs: 7, sm: 10, md: 30 },
                   zIndex: 100,
+                  filter: "drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.1))",
                 }}
               >
                 <CustomImageContainer
@@ -143,7 +150,7 @@ const HeroSection = ({ configData, landingPageData, handleOrderNow }) => {
           {currentLocation ? (
             <DynamicModuleSelection isSmall />
           ) : (
-            <CustomStackFullWidth mt="10px">
+            <CustomStackFullWidth mt="12px">
               <HeroLocationForm />
             </CustomStackFullWidth>
           )}

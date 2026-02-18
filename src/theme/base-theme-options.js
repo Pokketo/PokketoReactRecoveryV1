@@ -252,23 +252,25 @@ export const baseThemeOptions = {
   typography: {
     button: {
       fontWeight: 600,
+      letterSpacing: "0.01em",
     },
-    fontFamily: '"Rubik","sans-serif"',
+    fontFamily: '"Rubik", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
     //this is default font size for typography
     body1: {
       fontSize: "0.875rem",
       fontWeight: 400,
-      lineHeight: 1.5,
+      lineHeight: 1.6,
+      letterSpacing: "0.005em",
     },
     body2: {
       fontSize: "0.75rem",
       fontWeight: 400,
-      lineHeight: "11.85px",
+      lineHeight: 1.5,
     },
     body3: {
       fontSize: "0.625rem",
       fontWeight: 400,
-      lineHeight: "11.85px",
+      lineHeight: 1.5,
     },
     body4: {
       fontSize: "0.5rem",
@@ -278,7 +280,8 @@ export const baseThemeOptions = {
     subtitle1: {
       fontSize: "1rem",
       fontWeight: 500,
-      lineHeight: "18.96px",
+      lineHeight: 1.5,
+      letterSpacing: "0.005em",
     },
     subtitle2: {
       fontSize: "0.875rem",
@@ -288,7 +291,7 @@ export const baseThemeOptions = {
     overline: {
       fontSize: "0.75rem",
       fontWeight: 600,
-      letterSpacing: "0.5px",
+      letterSpacing: "0.08em",
       lineHeight: 2.5,
       textTransform: "uppercase",
     },
@@ -300,42 +303,47 @@ export const baseThemeOptions = {
     h1: {
       fontWeight: 700,
       fontSize: "3.5rem",
-      lineHeight: 1.375,
+      lineHeight: 1.2,
+      letterSpacing: "-0.02em",
     },
     h2: {
       fontWeight: 700,
       fontSize: "3rem",
-      lineHeight: 1.375,
+      lineHeight: 1.2,
+      letterSpacing: "-0.015em",
     },
     h3: {
       fontWeight: 700,
       fontSize: "2.25rem",
-      lineHeight: 1.375,
+      lineHeight: 1.25,
+      letterSpacing: "-0.01em",
     },
     h4: {
       fontWeight: 700,
       fontSize: "2rem",
-      lineHeight: 1.375,
+      lineHeight: 1.3,
+      letterSpacing: "-0.01em",
     },
     h5: {
       fontWeight: 600,
       fontSize: "1.5rem",
-      lineHeight: 1.375,
+      lineHeight: 1.35,
+      letterSpacing: "-0.005em",
     },
     h6: {
       fontWeight: 600,
       fontSize: "1.25rem",
-      lineHeight: 1.375,
+      lineHeight: 1.4,
     },
     h7: {
       fontWeight: 600,
       fontSize: "1rem",
-      lineHeight: 1.375,
+      lineHeight: 1.4,
     },
     h8: {
       fontWeight: 600,
       fontSize: "0.75rem",
-      lineHeight: 1.375,
+      lineHeight: 1.4,
     },
   },
   zIndex: {

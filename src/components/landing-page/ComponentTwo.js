@@ -39,11 +39,12 @@ const ComponentTwo = ({ landingPageData }) => {
             alignItems="center"
             justifyContent="center"
             sx={{
-              background: `linear-gradient(180deg, ${alpha(
+              background: `linear-gradient(135deg, ${alpha(
                 theme.palette.primary.main,
-                0.1
-              )} 0%, ${alpha(theme.palette.primary.main, 0.3)} 100%)`,
-              // background: `linear-gradient(180deg, rgba(3, 157, 85, 0.10) 0%, rgba(3, 157, 85, 0.30) 100%)`,
+                0.06
+              )} 0%, ${alpha(theme.palette.primary.main, 0.14)} 100%)`,
+              borderRadius: { xs: "16px", md: "24px" },
+              padding: { xs: "1rem", md: "1.5rem" },
             }}
           >
             <Grid

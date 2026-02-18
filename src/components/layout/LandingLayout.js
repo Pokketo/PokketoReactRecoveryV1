@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 export const MainLayoutRoot = styled(Stack)(({ theme }) => ({
   backgroundColor: theme.palette.background.default,
-  height: "100vh",
+  minHeight: "100vh",
 }));
 
 export const LandingLayout = ({ children, configData, landingPageData }) => {

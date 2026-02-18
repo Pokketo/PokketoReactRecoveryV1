@@ -20,21 +20,26 @@ import DeliveryImage from "./svg-components/deliveryImage";
 
 export const CustomButton = styled(Button)(({ theme, boxshadow }) => ({
   backgroundColor: theme.palette.primary.main,
-  //   width: "150px",
-  height: "45px",
-  borderRadius: "30px",
-  boxShadow: "0px 4px 60px rgba(3, 157, 85, 0.2)",
+  height: "48px",
+  borderRadius: "12px",
+  boxShadow: "0px 4px 24px rgba(3, 157, 85, 0.2)",
   color: theme.palette.whiteContainer.main,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  fontWeight: 600,
+  letterSpacing: "0.01em",
+  padding: "0 28px",
+  transition: "all 0.3s cubic-bezier(0.22, 1, 0.36, 1)",
   "&:hover": {
     backgroundColor: theme.palette.primary.deep,
+    transform: "translateY(-2px)",
+    boxShadow: "0px 8px 32px rgba(3, 157, 85, 0.3)",
   },
   [theme.breakpoints.down("sm")]: {
-    // width: "130px",
-    height: "35px",
-    marginTop: "-2px",
+    height: "40px",
+    borderRadius: "10px",
+    padding: "0 20px",
   },
 }));
 const ComponentOne = ({ landingPageData, configData, handleOrderNow }) => {
@@ -48,10 +53,11 @@ const ComponentOne = ({ landingPageData, configData, handleOrderNow }) => {
     <>
       <CustomContainer>
         <CustomBoxFullWidth
+          className="premium-fade-in"
           sx={{
             position: "relative",
-            marginTop: "1rem",
-            marginBottom: ".1rem",
+            marginTop: { xs: "2rem", md: "3rem" },
+            marginBottom: { xs: "1rem", md: "1.5rem" },
           }}
         >
           <Grid
@@ -65,11 +71,12 @@ const ComponentOne = ({ landingPageData, configData, handleOrderNow }) => {
                 spacing={isSmall ? 2 : 3}
                 paddingBottom={{ xs: "1rem", sm: "2rem", md: "0px" }}
               >
-                <CustomStackFullWidth>
+                <CustomStackFullWidth spacing={0.5}>
                   <Typography
                     variant={isSmall ? "h6" : "h4"}
                     color="primary.main"
                     component="h2"
+                    sx={{ letterSpacing: "-0.01em" }}
                   >
                     <DollarSignHighlighter
                       theme={theme}
@@ -78,7 +85,7 @@ const ComponentOne = ({ landingPageData, configData, handleOrderNow }) => {
                   </Typography>
                   <Typography
                     variant={isSmall ? "h6" : "h4"}
-                    sx={{ opacity: ".9" }}
+                    sx={{ opacity: ".85", letterSpacing: "-0.01em" }}
                     component="h3"
                   >
                     <DollarSignHighlighter
@@ -88,10 +95,11 @@ const ComponentOne = ({ landingPageData, configData, handleOrderNow }) => {
                   </Typography>
                 </CustomStackFullWidth>
                 <Typography
-                  fontSize={{ xs: "12px", md: "18px" }}
+                  fontSize={{ xs: "13px", md: "17px" }}
                   fontWeight="400"
+                  lineHeight={1.7}
                   sx={{
-                    color: (theme) => alpha(theme.palette.neutral[500], 0.8),
+                    color: (theme) => alpha(theme.palette.neutral[500], 0.75),
                   }}
                 >
                   <DollarSignHighlighter

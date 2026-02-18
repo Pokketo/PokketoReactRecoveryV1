@@ -41,7 +41,7 @@ const HeroTitleSection = ({ configData, landingPageData, handleOrderNow }) => {
 
   return (
     <CustomStackFullWidth>
-      <CustomStackFullWidth spacing={0.4}>
+      <CustomStackFullWidth spacing={0.5}>
         <Stack
           direction="row"
           alignItems="center"
@@ -52,9 +52,10 @@ const HeroTitleSection = ({ configData, landingPageData, handleOrderNow }) => {
           <Typography
             sx={{
               color: (theme) => theme.palette.primary.main,
-              fontSize: isXSmall ? "20px" : "54px",
-              lineHeight: isXSmall ? "24px" : "58px",
-              fontWeight: "bold",
+              fontSize: isXSmall ? "22px" : "56px",
+              lineHeight: isXSmall ? "28px" : "64px",
+              fontWeight: 700,
+              letterSpacing: isXSmall ? "-0.01em" : "-0.025em",
             }}
             component="h1"
           >
@@ -65,10 +66,11 @@ const HeroTitleSection = ({ configData, landingPageData, handleOrderNow }) => {
           </Typography>
         </Stack>
         <Typography
-          color={alpha(theme.palette.neutral[700], 0.8)}
-          fontSize={isXSmall ? "16px" : "35px"}
-          lineHeight={isXSmall ? "22px" : "58px"}
+          color={alpha(theme.palette.neutral[700], 0.75)}
+          fontSize={isXSmall ? "15px" : "32px"}
+          lineHeight={isXSmall ? "22px" : "44px"}
           fontWeight="400"
+          letterSpacing="-0.01em"
           component="h2"
         >
           <DollarSignHighlighter
@@ -81,13 +83,14 @@ const HeroTitleSection = ({ configData, landingPageData, handleOrderNow }) => {
         flexDirection="row"
         spacing={2}
         justifyContent="space-between"
-        mt="14px"
+        mt="18px"
         sx={{ position: "relative" }}
       >
         <Typography
           sx={{
-            fontSize: { xs: "12px", md: "20px" },
-            color: (theme) => alpha(theme.palette.neutral[500], 0.5),
+            fontSize: { xs: "12px", md: "18px" },
+            color: (theme) => alpha(theme.palette.neutral[500], 0.6),
+            lineHeight: 1.6,
           }}
           fontWeight="400"
         >

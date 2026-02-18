@@ -12,10 +12,16 @@ const DiscountBanner = ({ bannerImage, isSmall }) => {
             sx={{
               position: "relative",
               width: "100%",
-              // height: "250px",
-              borderRadius: "5px",
-              marginBottom: "20px",
-              marginTop: "20px",
+              borderRadius: "16px",
+              marginBottom: "24px",
+              marginTop: "24px",
+              overflow: "hidden",
+              boxShadow: "0px 4px 24px rgba(0, 0, 0, 0.06)",
+              transition: "all 0.4s cubic-bezier(0.22, 1, 0.36, 1)",
+              "&:hover": {
+                transform: "translateY(-2px)",
+                boxShadow: "0px 12px 32px rgba(0, 0, 0, 0.1)",
+              },
             }}
           >
             <CustomImageContainer
@@ -24,7 +30,7 @@ const DiscountBanner = ({ bannerImage, isSmall }) => {
               height="100%"
               width="100%"
               obejctfit="contained"
-              borderRadius="5px"
+              borderRadius="16px"
             />
           </Box>
         </CustomContainer>
@@ -33,9 +39,15 @@ const DiscountBanner = ({ bannerImage, isSmall }) => {
           <Box
             sx={{
               width: "100%",
-              // height: "250px",
-              borderRadius: "5px",
-              marginBottom: "40px ",
+              borderRadius: "20px",
+              marginBottom: "48px",
+              overflow: "hidden",
+              boxShadow: "0px 4px 24px rgba(0, 0, 0, 0.06)",
+              transition: "all 0.4s cubic-bezier(0.22, 1, 0.36, 1)",
+              "&:hover": {
+                transform: "translateY(-3px)",
+                boxShadow: "0px 16px 48px rgba(0, 0, 0, 0.1)",
+              },
             }}
           >
             <CustomImageContainer
