@@ -44,25 +44,28 @@ const Banners = ({ landingPageData, isSmall }) => {
       <CustomStackFullWidth
         justifyContent="center"
         flexDirection="row"
-        gap="20px"
+        gap="24px"
       >
-        {/* <Grid container spacing={2}> */}
         {landingPageData?.promotion_banners_full_url?.map((item, index) => {
           return (
             <Box
               key={index}
               sx={{
                 border: (theme) =>
-                  `0.828571px solid ${alpha(theme.palette.primary.main, 0.15)}`,
+                  `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
                 position: "relative",
-                height: "175px",
+                height: { xs: "160px", md: "200px" },
                 width: { sm: "100%", md: "395px" },
-                borderRadius: "5px",
+                borderRadius: "16px",
                 overflow: "hidden",
+                boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.06)",
+                transition: "all 0.4s cubic-bezier(0.22, 1, 0.36, 1)",
                 "&:hover": {
+                  transform: "translateY(-4px)",
+                  boxShadow: "0px 12px 32px rgba(0, 0, 0, 0.1)",
                   img: {
-                    transform: "scale(1.1)",
-                    transition: "transform .8s ease-in-out",
+                    transform: "scale(1.05)",
+                    transition: "transform 0.6s ease-out",
                   },
                 },
               }}
@@ -73,7 +76,7 @@ const Banners = ({ landingPageData, isSmall }) => {
                 height="100%"
                 width="100%"
                 objectfit="cover"
-                borderRadius="5px"
+                borderRadius="16px"
               />
             </Box>
           );
@@ -87,7 +90,7 @@ const Banners = ({ landingPageData, isSmall }) => {
         sx={{
           "& .slick-slider": {
             "& .slick-slide": {
-              padding: { xs: "5px", md: "11px" },
+              padding: { xs: "6px", md: "12px" },
             },
           },
         }}
@@ -99,19 +102,23 @@ const Banners = ({ landingPageData, isSmall }) => {
                 key={index}
                 sx={{
                   border: (theme) =>
-                    `0.828571px solid ${alpha(
+                    `1px solid ${alpha(
                       theme.palette.primary.main,
-                      0.15
+                      0.1
                     )}`,
                   position: "relative",
-                  height: "175px",
+                  height: { xs: "160px", md: "200px" },
                   width: "100%",
-                  borderRadius: "5px",
+                  borderRadius: "16px",
                   overflow: "hidden",
+                  boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.06)",
+                  transition: "all 0.4s cubic-bezier(0.22, 1, 0.36, 1)",
                   "&:hover": {
+                    transform: "translateY(-3px)",
+                    boxShadow: "0px 12px 32px rgba(0, 0, 0, 0.1)",
                     img: {
-                      transform: "scale(1.1)",
-                      transition: "transform 0.8s ease-in-out",
+                      transform: "scale(1.05)",
+                      transition: "transform 0.6s ease-out",
                     },
                   },
                 }}
@@ -122,7 +129,7 @@ const Banners = ({ landingPageData, isSmall }) => {
                   height="100%"
                   width="100%"
                   objectfit="cover"
-                  borderRadius="5px"
+                  borderRadius="16px"
                 />
               </Box>
             );
@@ -176,10 +183,17 @@ const Banners = ({ landingPageData, isSmall }) => {
         <Box
           sx={{
             border: (theme) =>
-              `0.828571px solid ${alpha(theme.palette.primary.main, 0.15)}`,
+              `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
             position: "relative",
-            height: "175px",
-            borderRadius: "5px",
+            height: { xs: "160px", md: "200px" },
+            borderRadius: "16px",
+            overflow: "hidden",
+            boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.06)",
+            transition: "all 0.4s cubic-bezier(0.22, 1, 0.36, 1)",
+            "&:hover": {
+              transform: "translateY(-3px)",
+              boxShadow: "0px 12px 32px rgba(0, 0, 0, 0.1)",
+            },
           }}
         >
           <CustomImageContainer
@@ -188,7 +202,7 @@ const Banners = ({ landingPageData, isSmall }) => {
             height="100%"
             width="100%"
             objectfit="cover"
-            borderRadius="5px"
+            borderRadius="16px"
           />
         </Box>
       </Stack>
@@ -213,7 +227,7 @@ const Banners = ({ landingPageData, isSmall }) => {
   };
   return (
     <CustomContainer>
-      <Stack sx={{ marginY: isSmall ? "22px" : "40px" }}>
+      <Stack sx={{ marginY: isSmall ? "28px" : "48px" }}>
         {handleContent()}
       </Stack>
     </CustomContainer>

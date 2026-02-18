@@ -90,14 +90,19 @@ const Card = ({
   return (
     <CustomBoxFullWidth
       sx={{
-        padding: { xs: "15px 10px", sm: "25px 40px", md: "30px" },
-        borderRadius: "10px",
+        padding: { xs: "20px 16px", sm: "28px 40px", md: "36px" },
+        borderRadius: { xs: "16px", md: "20px" },
         height: "100%",
-        background: (theme) => theme.palette.background.default,
-        boxShadow: "0px 23px 40px rgba(3, 157, 85, 0.05)",
+        background: (theme) => theme.palette.background.paper,
+        boxShadow: "0px 4px 24px rgba(0, 0, 0, 0.04), 0px 1px 4px rgba(0, 0, 0, 0.02)",
+        border: (theme) => `1px solid ${alpha(theme.palette.neutral[200], 0.8)}`,
+        transition: "all 0.4s cubic-bezier(0.22, 1, 0.36, 1)",
         "&:hover": {
+          transform: "translateY(-4px)",
+          boxShadow: "0px 16px 48px rgba(3, 157, 85, 0.1), 0px 4px 12px rgba(0, 0, 0, 0.04)",
+          borderColor: (theme) => alpha(theme.palette.primary.main, 0.2),
           img: {
-            transform: "scale(1.04)",
+            transform: "scale(1.06)",
           },
         },
       }}

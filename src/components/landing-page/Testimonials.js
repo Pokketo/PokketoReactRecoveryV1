@@ -131,15 +131,15 @@ const Testimonials = ({ isSmall, landingPageData }) => {
 			{landingPageData && testimonials?.length > 0 && (
 				<CustomContainer>
 					<CustomStackFullWidth
-						py={{ xs: "30px", md: "3.35rem" }}
+						py={{ xs: "36px", md: "4rem" }}
 						spacing={4}
 					>
 						<Typography
 							textAlign="center"
 							variant={isSmall ? "h7" : "h4"}
-							fontSize={{ xs: "17px", sm: "24px", md: "30px" }}
-							fontWeight={500}
-							sx={{ opacity: ".9" }}
+							fontSize={{ xs: "18px", sm: "26px", md: "32px" }}
+							fontWeight={600}
+							sx={{ opacity: ".9", letterSpacing: "-0.01em" }}
 							component="h2"
 						>
 							<DollarSignHighlighter
@@ -276,22 +276,36 @@ export const TestimonialSlideText = (props) => {
 			>
 				{review && (
 					<Typography
-						fontSize={{ xs: "12px", md: "18px" }}
+						fontSize={{ xs: "13px", md: "17px" }}
 						fontWeight="400"
-						color={theme.palette.primary.main}
-						lineHeight="2"
+						color={theme.palette.neutral[600]}
+						lineHeight={1.8}
 						fontStyle="italic"
-						sx={{ maxWidth: { xs: "280px", sm: "400px", md: "580px" } }}
+						sx={{
+							maxWidth: { xs: "280px", sm: "400px", md: "600px" },
+							position: "relative",
+							"&::before": {
+								content: '"""',
+								fontSize: { xs: "32px", md: "48px" },
+								color: theme.palette.primary.main,
+								opacity: 0.3,
+								position: "absolute",
+								top: { xs: "-12px", md: "-20px" },
+								left: { xs: "-8px", md: "-16px" },
+								fontFamily: "Georgia, serif",
+							},
+						}}
 					>
-						“{review}”
+						{review}
 					</Typography>
 				)}
-				<Stack spacing={1}>
+				<Stack spacing={0.5} alignItems="center">
 					{name && (
 						<Typography
 							variant={isSmall ? "subtitle2" : "h6"}
 							fontWeight="600"
 							component="h3"
+							letterSpacing="-0.005em"
 						>
 							{name}
 						</Typography>
@@ -299,7 +313,7 @@ export const TestimonialSlideText = (props) => {
 					{designation && (
 						<Typography
 							variant={isSmall ? "body2" : "body1"}
-							fontSize={{ xs: "12px", sm: "14px", md: "16px" }}
+							fontSize={{ xs: "12px", sm: "14px", md: "15px" }}
 							fontWeight={400}
 							className="designation"
 							color="text.secondary"
@@ -308,6 +322,7 @@ export const TestimonialSlideText = (props) => {
 						</Typography>
 					)}
 				</Stack>
+			</Stack>
 			</Stack>
 		</Box>
 	);

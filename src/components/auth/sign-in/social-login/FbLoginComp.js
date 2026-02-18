@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
-import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
+import { FacebookLoginClient } from "@greatsumini/react-facebook-login";
+import FacebookLogin from "@greatsumini/react-facebook-login";
 import { toast } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
@@ -227,8 +228,25 @@ const FbLoginComp = (props) => {
         appId={appId}
         autoLoad={false}
         fields="name,email,picture"
-        callback={responseFacebook}
-        render={(renderProps) => <>{handleView(renderProps.onClick)}</>}
+        onSuccess={(response) => {
+          // After successful FB login, get profile info
+          FacebookLoginClient.getProfile(
+            (profileResponse) => {
+              responseFacebook({
+                ...profileResponse,
+                accessToken: response.accessToken,
+                id: profileResponse.id,
+                email: profileResponse.email,
+                name: profileResponse.name,
+              });
+            },
+            { fields: "name,email,picture" }
+          );
+        }}
+        onFail={(error) => {
+          console.error("Facebook login failed:", error);
+        }}
+        render={({ onClick }) => <>{handleView(onClick)}</>}
       />
       <CustomModal
         openModal={openOtpModal}

@@ -74,21 +74,23 @@ const AvailableZoneSection = ({ landingPageData }) => {
 						md={6}
 						align={isSmall ? "center" : "left"}
 					>
-						<Typography
-							fontSize={{ xs: "1.2rem", md: "30px" }}
-							fontWeight={{ xs: "600", md: "700" }}
-							component="h2"
-						>
-							{landingPageData?.available_zone_title}
-						</Typography>
-						<Typography
-							fontSize={{ xs: "14px", md: "16px" }}
-							fontWeight={{ xs: "400", md: "500" }}
-							color={theme.palette.neutral[400]}
-							paddingTop={isSmall ? "10px" : "0rem"}
-						>
-							{landingPageData?.available_zone_short_description}
-						</Typography>
+					<Typography
+						fontSize={{ xs: "1.25rem", md: "32px" }}
+						fontWeight={{ xs: "600", md: "700" }}
+						component="h2"
+						letterSpacing="-0.01em"
+					>
+						{landingPageData?.available_zone_title}
+					</Typography>
+					<Typography
+						fontSize={{ xs: "14px", md: "16px" }}
+						fontWeight={{ xs: "400", md: "400" }}
+						color={theme.palette.neutral[400]}
+						paddingTop={isSmall ? "10px" : "8px"}
+						lineHeight={1.6}
+					>
+						{landingPageData?.available_zone_short_description}
+					</Typography>
 						<Box sx={{ position: "relative", marginTop: "35px" }}>
 							<Box
 								sx={{
@@ -128,27 +130,30 @@ const AvailableZoneSection = ({ landingPageData }) => {
 												title={toolTipsContent(zone)}
 												key={index}
 											>
-												<Box
-													sx={{
-														borderRadius: "10px",
-														border: "1px solid",
-														borderColor: alpha(
-															theme.palette.neutral[400],
-															0.5
-														),
-														backgroundColor: (theme) =>
-															theme.palette.neutral[100],
-														padding: "15px 30px",
-														cursor: "pointer",
-														fontSize: "20px",
-														fontWeight: 700,
-														textAlign: "center",
-														textDecoration: "none",
-														"&:hover": {
-															boxShadow: `0px 4px 12px 0px ${theme.palette.neutral[100]}`,
-															color: "#039d55",
-														},
-													}}
+											<Box
+												sx={{
+													borderRadius: "12px",
+													border: "1px solid",
+													borderColor: alpha(
+														theme.palette.neutral[400],
+														0.3
+													),
+													backgroundColor: (theme) =>
+														theme.palette.background.paper,
+													padding: "14px 28px",
+													cursor: "pointer",
+													fontSize: "18px",
+													fontWeight: 600,
+													textAlign: "center",
+													textDecoration: "none",
+													transition: "all 0.3s cubic-bezier(0.22, 1, 0.36, 1)",
+													"&:hover": {
+														boxShadow: "0px 4px 16px rgba(3, 157, 85, 0.12)",
+														color: "#039d55",
+														borderColor: alpha(theme.palette.primary.main, 0.3),
+														transform: "translateY(-2px)",
+													},
+												}}
 													data-bs-toggle="popover"
 													data-bs-trigger="hover"
 													data-bs-placement="top"

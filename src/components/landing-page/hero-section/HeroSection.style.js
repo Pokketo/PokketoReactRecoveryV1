@@ -69,9 +69,10 @@ export const StyledButton = styled(CustomButtonPrimary)(
   ({ theme, radiuschange, language_direction }) => ({
     color: theme.palette.whiteContainer.main,
     width: "500px",
-    padding: "9px 7px 10.5px 7px",
-    // paddingTop: "10px",
-    // paddingBottom: "9px",
+    padding: "10px 8px 11px 8px",
+    fontWeight: 600,
+    fontSize: "0.875rem",
+    letterSpacing: "0.02em",
     marginLeft: language_direction === "rtl" && "15px",
     borderTopLeftRadius:
       (language_direction === "ltr" || !language_direction) &&
@@ -85,6 +86,11 @@ export const StyledButton = styled(CustomButtonPrimary)(
       language_direction === "rtl" && radiuschange === "true" && "0px",
     borderBottomRightRadius:
       language_direction === "rtl" && radiuschange === "true" && "0px",
+    transition: "all 0.3s cubic-bezier(0.22, 1, 0.36, 1)",
+    "&:hover": {
+      transform: "translateY(-1px)",
+      boxShadow: "0px 4px 16px rgba(3, 157, 85, 0.3)",
+    },
   })
 );
 export const CustomBox = styled(Box)(({ theme }) => ({
