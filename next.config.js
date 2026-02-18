@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['localhost'], // Add the domain here
+    domains: ['uatadmin.pokketo.com''], // Add the domain here
   },
 };
 
